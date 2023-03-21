@@ -5,10 +5,32 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [lastName, setLastName] = useState("");
-  //const [message, setMessage] = useState("");
+  const [firstLastName, setFirstLastName] = useState("");
+  const [secondLastName, setSecondLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [dni, setDni] = useState("");
+  const [age, setAge] = useState("");
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [address, setAddress] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [city, setcity] = useState("");
+
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log({
+      name,
+      email,
+      password,
+      firstLastName,
+      secondLastName,
+      phone,
+      address,
+      dni,
+      age,
+      height,
+      weight,
+    });
   }
   return (
     <div>
@@ -36,24 +58,24 @@ const Register = () => {
                   <label htmlFor="lastName">Primer apellido:</label>
                   <input
                     className=" border border-gray-300 rounded-lg p-2"
-                    placeholder="Entra sus apellidos"
+                    placeholder="Entra su primer apellido"
                     type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    id="firstLastName"
+                    name="firstLastName"
+                    value={firstLastName}
+                    onChange={(e) => setFirstLastName(e.target.value)}
                   />
                 </div>
                 <div className=" flex flex-col">
                   <label htmlFor="lastName">Segundo apellido:</label>
                   <input
                     className=" border border-gray-300 rounded-lg p-2"
-                    placeholder="Entra sus apellidos"
+                    placeholder="Entra su segundo apellido"
                     type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    id="secondLastName"
+                    name="secondLastName"
+                    value={secondLastName}
+                    onChange={(e) => setSecondLastName(e.target.value)}
                   />
                 </div>
 
@@ -63,23 +85,49 @@ const Register = () => {
                     className=" border border-gray-300 rounded-lg p-2"
                     placeholder="Entra su numero"
                     type="tel"
-                    // id="lastName"
-                    // name="lastName"
-                    // value={lastName}
-                    //onChange={(e) => setLastName(e.target.value)}
+                    id="phone"
+                    name="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
                 <div className=" flex flex-col">
                   <label htmlFor="lastName">Direccion:</label>
-                  <textarea
-                    className=" h-full border border-gray-300 rounded-lg p-2"
+                  <input
+                    className=" border border-gray-300 rounded-lg p-2"
                     placeholder="Entra su direccion"
                     type="text"
-                    // id="lastName"
-                    // name="lastName"
-                    // value={lastName}
-                    //onChange={(e) => setLastName(e.target.value)}
+                    id="address"
+                    name="address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
                   />
+                </div>
+                <div className="grid lg:grid-cols-2 gap-6">
+                  <div className=" flex flex-col">
+                    <label htmlFor="lastName">Codigo Postal:</label>
+                    <input
+                      className="border border-gray-300 rounded-lg p-2"
+                      placeholder="Entra su codigo"
+                      type="number"
+                      id="zipCode"
+                      name="zipCode"
+                      value={zipCode}
+                      onChange={(e) => setZipCode(e.target.value)}
+                    />
+                  </div>
+                  <div className=" flex flex-col">
+                    <label htmlFor="lastName">Ciudad:</label>
+                    <input
+                      className="border border-gray-300 rounded-lg p-2"
+                      placeholder="Entra su ciudad"
+                      type="text"
+                      id="city"
+                      name="city"
+                      value={city}
+                      onChange={(e) => setcity(e.target.value)}
+                    />
+                  </div>
                 </div>
               </section>
               <section>
@@ -90,10 +138,10 @@ const Register = () => {
                       className=" border border-gray-300 rounded-lg p-2"
                       placeholder="Entra su DNI"
                       type="text"
-                      // id="lastName"
-                      // name="lastName"
-                      // value={lastName}
-                      //onChange={(e) => setLastName(e.target.value)}
+                      id="dni"
+                      name="dni"
+                      value={dni}
+                      onChange={(e) => setDni(e.target.value)}
                     />
                   </div>
 
@@ -103,10 +151,10 @@ const Register = () => {
                       className=" border border-gray-300 rounded-lg p-2"
                       placeholder="Entra su edad"
                       type="number"
-                      // id="lastName"
-                      // name="lastName"
-                      // value={lastName}
-                      //onChange={(e) => setLastName(e.target.value)}
+                      id="age"
+                      name="age"
+                      value={age}
+                      onChange={(e) => setAge(e.target.value)}
                     />
                   </div>
                   <div className=" flex flex-col">
@@ -115,10 +163,10 @@ const Register = () => {
                       className=" border border-gray-300 rounded-lg p-2"
                       placeholder="Entra su altura"
                       type="number"
-                      // id="lastName"
-                      // name="lastName"
-                      // value={lastName}
-                      //onChange={(e) => setLastName(e.target.value)}
+                      id="height"
+                      name="height"
+                      value={height}
+                      onChange={(e) => setHeight(e.target.value)}
                     />
                   </div>
                   <div className=" flex flex-col">
@@ -127,10 +175,10 @@ const Register = () => {
                       className=" border border-gray-300 rounded-lg p-2"
                       placeholder="Entra su peso"
                       type="number"
-                      // id="lastName"
-                      // name="lastName"
-                      // value={lastName}
-                      //onChange={(e) => setLastName(e.target.value)}
+                      id="weight"
+                      name="weight"
+                      value={weight}
+                      onChange={(e) => setWeight(e.target.value)}
                     />
                   </div>
                   <div className="grid lg:grid-cols-2 gap-6">
