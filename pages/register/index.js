@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 
 const Register = () => {
@@ -15,29 +15,84 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [city, setcity] = useState("");
+  const [registrationStatus, setRegistrationStatus] = useState(null);
+
+  useEffect(() => {
+    if (registrationStatus === "success" || registrationStatus === "error") {
+      const timeoutId = setTimeout(() => {
+        setRegistrationStatus(null);
+      }, 3000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [registrationStatus]);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log({
-      name,
-      email,
-      password,
-      firstLastName,
-      secondLastName,
-      phone,
-      address,
-      dni,
-      age,
-      height,
-      weight,
+    setRegistrationStatus("submitting");
+
+    const response = await fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        firstLastName,
+        secondLastName,
+        phone,
+        dni,
+        age,
+        height,
+        weight,
+        address,
+        zipCode,
+        city,
+      }),
     });
+
+    if (response.ok) {
+      setRegistrationStatus("success");
+
+      // Reset form values after successful submission
+      setName("");
+      setEmail("");
+      setPassword("");
+      setFirstLastName("");
+      setSecondLastName("");
+      setPhone("");
+      setDni("");
+      setAge("");
+      setHeight("");
+      setWeight("");
+      setAddress("");
+      setZipCode("");
+      setcity("");
+
+      // ...reset the rest of your form input values...
+    } else {
+      setRegistrationStatus("error");
+    }
   }
+
   return (
     <div>
       <Header />
       <div className=" p-5 mt-10">
         <h1 className=" text-center mb-10 text-4xl font-semibold">Crea tu cuenta</h1>
         <div className=" p-4 max-w-7xl mx-auto">
+          {registrationStatus === "success" && (
+            <p className="text-green-500">Registration successful!</p>
+          )}
+          {registrationStatus === "error" && (
+            <p className="text-red-500">Registration failed. Please try again later.</p>
+          )}
+          {registrationStatus === "submitting" && (
+            <p className="text-blue-500">Submitting registration...</p>
+          )}
+
           <form className=" grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
             <div className=" grid lg:grid-cols-2 gap-6">
               <section className=" grid grid-cols-1 gap-3">
