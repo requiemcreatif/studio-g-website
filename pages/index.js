@@ -1,31 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
-import LogoStudio from "../images/Logo-App-Studio-g.svg";
+import Logo from "../images/logo-black.svg";
 
 export default function Home() {
   return (
     <main className=" bg-white p-10 h-screen">
-      <div className="">
-        {/* <div className=" flex justify-center">
-          <Image className="pb-24" src={LogoStudio} alt="Logo Studio G" width={80} height={100} />
-        </div> */}
-        <div className="grid grid-cols-1 gap-5 max-w-7xl mx-auto lg:grid-cols-2 ">
-          <div>
-            <h1 className="text-black text-7xl pb-5 lg:text-8xl font-bold">CENTRO DEPORTIVO</h1>
-            <Link href="/register">
-              <button className=" font-semibold shadow-xl border text-black px-10 w-full lg:w-52 hover:bg-black hover:text-white transition-colors 300s py-3 rounded-xl ">
-                Register
-              </button>
-            </Link>
+      <div className=" lg:px-40 grid grid-cols-1 max-w-7xl gap-10 mx-auto mt-60">
+        <div className="grid grid-cols-[30%_70%] max-w-7xl">
+          <div className="">
+            <Image className="" src={Logo} alt="Logo Studio G" width={100} height={100} />
           </div>
-
-          <p className="text-black pb-24">
+          <div className=" ">
+            <h1 className="text-black text-7xl lg:text-8xl font-bold">CENTRO DEPORTIVO</h1>
+          </div>
+        </div>
+        <div className=" grid grid-cols-1 max-w-7xl gap-10">
+          <p className="text-black">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia doloremque sint adipisci
             dolorum dolores nobis placeat a quas id itaque, obcaecati optio praesentium culpa
             cupiditate voluptate. In est ducimus eius. Lorem, ipsum dolor sit amet consectetur
             adipisicing elit. Quia doloremque sint adipisci dolorum dolores nobis placeat a quas id
             itaque, obcaecati optio praesentium culpa cupiditate voluptate. In est ducimus eius.
           </p>
+          <div>
+            <Link href="/register">
+              <button className=" font-semibold shadow-xl border bg-black text-white px-10 w-full lg:w-52 hover:bg-black hover:text-white transition-colors 300s rounded-xl py-3 ">
+                Register
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </main>

@@ -1,5 +1,18 @@
 import { connectToDatabase } from "../../util/mongodb";
 
+async function validateUser(user) {
+  if (!user.name) {
+    throw new Error("Name is required");
+  }
+  if (!user.email) {
+    throw new Error("Email is required");
+  }
+  if (!user.phone) {
+    throw new Error("Phone number is required");
+  }
+  // Add more validation checks here
+}
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(400).json({ message: "Invalid request method" });
@@ -9,7 +22,6 @@ export default async function handler(req, res) {
   const {
     name,
     email,
-    password,
     firstLastName,
     secondLastName,
     phone,
@@ -26,7 +38,6 @@ export default async function handler(req, res) {
   const result = await db.collection("users").insertOne({
     name,
     email,
-    password,
     firstLastName,
     secondLastName,
     phone,

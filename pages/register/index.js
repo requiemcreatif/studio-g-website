@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
+import axios from "axios";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -31,15 +32,10 @@ const Register = () => {
     e.preventDefault();
     setRegistrationStatus("submitting");
 
-    const response = await fetch("/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    try {
+      const response = await axios.post("/api/register", {
         name,
         email,
-        password,
         firstLastName,
         secondLastName,
         phone,
@@ -50,29 +46,31 @@ const Register = () => {
         address,
         zipCode,
         city,
-      }),
-    });
+      });
+      if (response.status === 201) {
+        setRegistrationStatus("success");
 
-    if (response.ok) {
-      setRegistrationStatus("success");
+        // Reset form values after successful submission
+        setName("");
+        setEmail("");
+        // setPassword("");
+        setFirstLastName("");
+        setSecondLastName("");
+        setPhone("");
+        setDni("");
+        setAge("");
+        setHeight("");
+        setWeight("");
+        setAddress("");
+        setZipCode("");
+        setcity("");
 
-      // Reset form values after successful submission
-      setName("");
-      setEmail("");
-      setPassword("");
-      setFirstLastName("");
-      setSecondLastName("");
-      setPhone("");
-      setDni("");
-      setAge("");
-      setHeight("");
-      setWeight("");
-      setAddress("");
-      setZipCode("");
-      setcity("");
-
-      // ...reset the rest of your form input values...
-    } else {
+        // ...reset the rest of your form input values...
+      } else {
+        setRegistrationStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
       setRegistrationStatus("error");
     }
   }
@@ -108,30 +106,31 @@ const Register = () => {
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
-
-                <div className=" flex flex-col">
-                  <label htmlFor="lastName">Primer apellido:</label>
-                  <input
-                    className=" border border-gray-300 rounded-lg p-2"
-                    placeholder="Entra su primer apellido"
-                    type="text"
-                    id="firstLastName"
-                    name="firstLastName"
-                    value={firstLastName}
-                    onChange={(e) => setFirstLastName(e.target.value)}
-                  />
-                </div>
-                <div className=" flex flex-col">
-                  <label htmlFor="lastName">Segundo apellido:</label>
-                  <input
-                    className=" border border-gray-300 rounded-lg p-2"
-                    placeholder="Entra su segundo apellido"
-                    type="text"
-                    id="secondLastName"
-                    name="secondLastName"
-                    value={secondLastName}
-                    onChange={(e) => setSecondLastName(e.target.value)}
-                  />
+                <div className="grid lg:grid-cols-2 gap-6">
+                  <div className=" flex flex-col">
+                    <label htmlFor="lastName">Primer apellido:</label>
+                    <input
+                      className=" border border-gray-300 rounded-lg p-2"
+                      placeholder="Entra su primer apellido"
+                      type="text"
+                      id="firstLastName"
+                      name="firstLastName"
+                      value={firstLastName}
+                      onChange={(e) => setFirstLastName(e.target.value)}
+                    />
+                  </div>
+                  <div className=" flex flex-col">
+                    <label htmlFor="lastName">Segundo apellido:</label>
+                    <input
+                      className=" border border-gray-300 rounded-lg p-2"
+                      placeholder="Entra su segundo apellido"
+                      type="text"
+                      id="secondLastName"
+                      name="secondLastName"
+                      value={secondLastName}
+                      onChange={(e) => setSecondLastName(e.target.value)}
+                    />
+                  </div>
                 </div>
 
                 <div className=" flex flex-col">
@@ -236,7 +235,7 @@ const Register = () => {
                       onChange={(e) => setWeight(e.target.value)}
                     />
                   </div>
-                  <div className="grid lg:grid-cols-2 gap-6">
+                  <div className="grid lg:grid-cols-1 gap-6">
                     <div className=" flex flex-col">
                       <label htmlFor="email">Email:</label>
                       <input
@@ -249,7 +248,7 @@ const Register = () => {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
-                    <div className=" flex flex-col">
+                    {/* <div className=" flex flex-col">
                       <label htmlFor="password">Contrasena:</label>
                       <input
                         className=" border border-gray-300 rounded-lg p-2"
@@ -260,7 +259,7 @@ const Register = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </section>
