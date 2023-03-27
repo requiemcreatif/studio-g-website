@@ -97,7 +97,7 @@ const Register = () => {
                 <div className=" flex flex-col">
                   <label htmlFor="name">Nombre:</label>
                   <input
-                    className=" bg-white border border-gray-300 rounded-lg p-2"
+                    className=" bg-white border border-gray-300 rounded-lg p-4"
                     placeholder="Entra su nombre"
                     type="text"
                     id="name"
@@ -110,7 +110,7 @@ const Register = () => {
                   <div className=" flex flex-col">
                     <label htmlFor="lastName">Primer apellido:</label>
                     <input
-                      className=" border border-gray-300 rounded-lg p-2"
+                      className=" bg-white border border-gray-300 rounded-lg p-4"
                       placeholder="Entra su primer apellido"
                       type="text"
                       id="firstLastName"
@@ -122,7 +122,7 @@ const Register = () => {
                   <div className=" flex flex-col">
                     <label htmlFor="lastName">Segundo apellido:</label>
                     <input
-                      className=" border border-gray-300 rounded-lg p-2"
+                      className=" bg-white border border-gray-300 rounded-lg p-4"
                       placeholder="Entra su segundo apellido"
                       type="text"
                       id="secondLastName"
@@ -136,7 +136,7 @@ const Register = () => {
                 <div className=" flex flex-col">
                   <label htmlFor="lastName">Telefono:</label>
                   <input
-                    className=" border border-gray-300 rounded-lg p-2"
+                    className=" bg-white border border-gray-300 rounded-lg p-4"
                     placeholder="Entra su numero"
                     type="tel"
                     id="phone"
@@ -148,7 +148,7 @@ const Register = () => {
                 <div className=" flex flex-col">
                   <label htmlFor="lastName">Direccion:</label>
                   <input
-                    className=" border border-gray-300 rounded-lg p-2"
+                    className=" bg-white border border-gray-300 rounded-lg p-4"
                     placeholder="Entra su direccion"
                     type="text"
                     id="address"
@@ -161,7 +161,7 @@ const Register = () => {
                   <div className=" flex flex-col">
                     <label htmlFor="lastName">Codigo Postal:</label>
                     <input
-                      className="border border-gray-300 rounded-lg p-2"
+                      className=" bg-white border border-gray-300 rounded-lg p-4"
                       placeholder="Entra su codigo"
                       type="number"
                       id="zipCode"
@@ -173,7 +173,7 @@ const Register = () => {
                   <div className=" flex flex-col">
                     <label htmlFor="lastName">Ciudad:</label>
                     <input
-                      className="border border-gray-300 rounded-lg p-2"
+                      className=" bg-white border border-gray-300 rounded-lg p-4"
                       placeholder="Entra su ciudad"
                       type="text"
                       id="city"
@@ -189,7 +189,7 @@ const Register = () => {
                   <div className=" flex flex-col">
                     <label htmlFor="lastName">DNI:</label>
                     <input
-                      className=" border border-gray-300 rounded-lg p-2"
+                      className=" bg-white border border-gray-300 rounded-lg p-4"
                       placeholder="Entra su DNI"
                       type="text"
                       id="dni"
@@ -202,7 +202,7 @@ const Register = () => {
                   <div className=" flex flex-col">
                     <label htmlFor="lastName">Edad:</label>
                     <input
-                      className=" border border-gray-300 rounded-lg p-2"
+                      className=" bg-white border border-gray-300 rounded-lg p-4"
                       placeholder="Entra su edad"
                       type="number"
                       id="age"
@@ -214,7 +214,7 @@ const Register = () => {
                   <div className=" flex flex-col">
                     <label htmlFor="lastName">Altura:</label>
                     <input
-                      className=" border border-gray-300 rounded-lg p-2"
+                      className=" bg-white border border-gray-300 rounded-lg p-4"
                       placeholder="Entra su altura"
                       type="number"
                       id="height"
@@ -226,7 +226,7 @@ const Register = () => {
                   <div className=" flex flex-col">
                     <label htmlFor="lastName">Peso:</label>
                     <input
-                      className=" border border-gray-300 rounded-lg p-2"
+                      className=" bg-white border border-gray-300 rounded-lg p-4"
                       placeholder="Entra su peso"
                       type="number"
                       id="weight"
@@ -239,7 +239,7 @@ const Register = () => {
                     <div className=" flex flex-col">
                       <label htmlFor="email">Email:</label>
                       <input
-                        className=" border border-gray-300 rounded-lg p-2"
+                        className=" bg-white border border-gray-300 rounded-lg p-4"
                         placeholder="Enter your email"
                         type="email"
                         id="email"
@@ -248,42 +248,51 @@ const Register = () => {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
-                    {/* <div className=" flex flex-col">
-                      <label htmlFor="password">Contrasena:</label>
-                      <input
-                        className=" border border-gray-300 rounded-lg p-2"
-                        placeholder="Enter your password"
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div> */}
                   </div>
                 </div>
               </section>
             </div>
 
             <section className="mt-10">
-              <h2 className=" text-center text-4xl font-semibold mb-10">Evaluacion inicial</h2>
-              <div></div>
+              <div className=" bg-white p-4 rounded-md">
+                <h2 className=" text-left text-3xl font-semibold ">Evaluacion inicial</h2>
+              </div>
+              <div>
+                <h3 className=" p-2">Practicas deporte habitualmente ?</h3>
+              </div>
+
+              <div className="flex gap-4 p-5">
+                <div className="flex gap-4">
+                  <h3 className=" p-2">Si</h3>
+                  <input type="checkbox" />
+                </div>
+
+                <div className="flex gap-4">
+                  <h3 className=" p-2">Frecuencia</h3>
+                  <input className=" p-2 rounded-md" type="text " />
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-5">
+                <h3 className=" p-2">No</h3>
+                <input type="checkbox" />
+              </div>
             </section>
             <section>
-              <h2 className=" text-center text-4xl font-semibold mb-10">
-                Objetivos / Entrenamientos
-              </h2>
-              <div></div>
+              <div className=" bg-white p-4 rounded-md">
+                <h2 className=" text-left text-3xl font-semibold ">Objetivos | Entrenamientos</h2>
+              </div>
             </section>
             <section>
-              <h2 className=" text-center text-4xl font-semibold mb-10">
-                Enfermedades / Lesiones / Patologias
-              </h2>
-              <div></div>
+              <div className=" bg-white p-4 rounded-md">
+                <h2 className=" text-left text-3xl font-semibold ">
+                  Enfermedades| Lesiones | Patologias
+                </h2>
+              </div>
             </section>
-            <div className=" grid lg:justify-center">
+            <div className=" grid ">
               <button
-                className=" lg:w-72 transition-all 300s font-semibold border-custom-yellow border-solid border text-custom-yellow px-10 hover:bg-custom-yellow hover:text-white py-2 rounded-full"
+                className=" lg:w-72 transition-all 300s font-semibold border-black border-solid border text-black px-10 hover:bg-custom-yellow hover:text-white py-3 rounded-lg mt-10"
                 type="submit">
                 Enviar
               </button>

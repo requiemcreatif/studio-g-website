@@ -30,6 +30,7 @@ export const getServerSideProps = async () => {
   const db = await connectToDatabase();
   const data = await db.collection("users").find({}).toArray();
   const users = JSON.parse(JSON.stringify(data));
+  console.log(users);
 
   return {
     props: {
