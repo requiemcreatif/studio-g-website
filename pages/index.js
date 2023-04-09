@@ -85,7 +85,7 @@ export default function Home() {
         <div className="bg-[#1e293b] h-[80px]">
           <div className="flex justify-center items-center h-full">
             <p className="text-white text-center text-2xl font-semibold">
-              © 2021 Studio-G | Centro Deportivo. All rights reserved.
+              © 2021 Studio-g | Centro Deportivo. All rights reserved.
             </p>
           </div>
         </div>
