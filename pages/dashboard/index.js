@@ -15,7 +15,7 @@ function Dashboard({ users }) {
           type="text"
         />
       </div>
-      <div className=" grid grid-cols-1 gap-10 lg:grid-cols-3 p-5 lg:max-w-[1500px] mx-auto mt-20">
+      <div className=" grid grid-cols-1 gap-10 lg:grid-cols-3 p-5 lg:max-w-[1500px] mx-auto mt-20 lg:px-10">
         {memoizedUsers.map((user) => (
           <div key={user._id}>
             <UserList user={user} />
